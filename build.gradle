@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.1'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
+}
+
+task mbTest(type: Test) {
+    compileTestJava.options.encoding = 'UTF-8'
+    systemProperties['junit.jupiter.extensions.autodetection.enabled'] = true
+    useJUnitPlatform()
+}
